@@ -1,10 +1,17 @@
 import type { Metadata } from 'next'
 import type { Article } from './articles'
 
+function resolveSiteUrl(): string {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`
+  return 'http://localhost:3000'
+}
+
 export const siteConfig = {
   name: 'AI Tools for Solopreneurs',
   description: 'In-depth reviews of 100+ AI tools to help solopreneurs work faster and grow their business.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+  url: resolveSiteUrl(),
 }
 
 export function buildMetadata(overrides: Partial<Metadata> & { path?: string } = {}): Metadata {
