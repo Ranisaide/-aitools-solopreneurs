@@ -12,6 +12,7 @@ export type ArticleFrontmatter = {
   category: string
   excerpt: string
   date: string
+  image: string
   affiliateSlug?: string
   rating?: number
 }
