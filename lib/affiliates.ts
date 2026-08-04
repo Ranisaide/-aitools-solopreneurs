@@ -28,6 +28,11 @@ export const affiliatePrograms: AffiliateProgram[] = [
   { slug: 'make', name: 'Make', category: 'Automation', url: affiliateUrl('https://www.make.com', 'MAKE'), disclosure: 'We earn a commission if you subscribe through this link.' },
   { slug: 'hubspot', name: 'HubSpot', category: 'CRM & Sales', url: affiliateUrl('https://www.hubspot.com', 'HUBSPOT'), disclosure: 'We earn a commission if you subscribe through this link.' },
   { slug: 'convertkit', name: 'Kit (ConvertKit)', category: 'Email Marketing', url: affiliateUrl('https://kit.com', 'CONVERTKIT'), disclosure: 'We earn a commission if you subscribe through this link.' },
+  { slug: 'perplexity-ai', name: 'Perplexity AI', category: 'Research & Analytics', url: affiliateUrl('https://www.perplexity.ai', 'PERPLEXITY'), disclosure: 'We may earn a commission if you subscribe through this link.' },
+  { slug: 'writesonic', name: 'Writesonic', category: 'Writing', url: affiliateUrl('https://writesonic.com', 'WRITESONIC'), disclosure: 'We earn a commission if you subscribe through this link.' },
+  { slug: 'adobe-firefly', name: 'Adobe Creative Cloud', category: 'Design', url: affiliateUrl('https://www.adobe.com', 'ADOBE'), disclosure: 'We earn a commission if you subscribe through this link.' },
+  { slug: 'loom', name: 'Loom', category: 'Video & Audio', url: affiliateUrl('https://www.loom.com', 'LOOM'), disclosure: 'We may earn a commission if you subscribe through this link.' },
+  { slug: 'calendly', name: 'Calendly', category: 'Productivity', url: affiliateUrl('https://calendly.com', 'CALENDLY'), disclosure: 'We may earn a commission if you subscribe through this link.' },
 ]
 
 export function getAffiliateBySlug(slug: string): AffiliateProgram | undefined {
