@@ -7,7 +7,7 @@ import TOC from '@/components/TOC'
 import RelatedArticles from '@/components/RelatedArticles'
 import ReadingList from '@/components/ReadingList'
 import { getAllArticles, getArticleBySlug, getRelatedArticles } from '@/lib/articles'
-import { articleJsonLd, articleMetadata } from '@/lib/seo'
+import { articleJsonLd, articleMetadata, breadcrumbJsonLd } from '@/lib/seo'
 
 export function generateStaticParams() {
   return getAllArticles().map((article) => ({ slug: article.slug }))
@@ -30,6 +30,10 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd(article)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(article)) }}
       />
 
       <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl bg-gray-100 sm:aspect-[3/1]">

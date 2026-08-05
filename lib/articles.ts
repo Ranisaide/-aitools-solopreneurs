@@ -15,6 +15,8 @@ export type ArticleFrontmatter = {
   image: string
   affiliateSlug?: string
   rating?: number
+  freeTier?: boolean
+  startingPrice?: number
 }
 
 export type Article = ArticleFrontmatter & {

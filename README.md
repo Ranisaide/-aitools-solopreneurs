@@ -1,8 +1,7 @@
 # AI Tools for Solopreneurs
 
 100+ in-depth AI tool reviews for solopreneurs, built with Next.js 14 (App Router) and MDX.
-Content is monetized through 16+ affiliate programs across writing, design, video, SEO,
-marketing, automation, coding, and more.
+Content is monetized through our 3 active affiliate programs: Copy.ai, Grammarly, and HubSpot.
 
 ## Stack
 
@@ -61,22 +60,12 @@ unset variables fall back to a `demo` tracking value.
 
 | Program | Category |
 |---|---|
-| Jasper AI | Writing |
 | Copy.ai | Writing |
 | Grammarly | Writing |
-| Notion | Productivity |
-| ClickUp | Productivity |
-| Semrush | SEO |
-| Surfer SEO | SEO |
-| Canva Pro | Design |
-| Midjourney | Design |
-| Descript | Video & Audio |
-| Synthesia | Video & Audio |
-| ElevenLabs | Video & Audio |
-| Zapier | Automation |
-| Make | Automation |
 | HubSpot | CRM & Sales |
-| Kit (ConvertKit) | Email Marketing |
 
 Full config with tracked URLs lives in `lib/affiliates.ts`. Every affiliate CTA renders through
 the `<AffiliateButton slug="..." />` component, which also displays an affiliate disclosure.
+`AffiliateButton` renders nothing for a slug that isn't in `affiliatePrograms`, so article
+content written for a since-closed program (Jasper, Notion, Canva, Midjourney, etc.) degrades
+gracefully instead of breaking the build.
