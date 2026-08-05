@@ -23,7 +23,18 @@ export function buildMetadata(overrides: Partial<Metadata> & { path?: string } =
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // French and UK-English versions aren't published yet — these hreflang
+      // tags are prep work so search engines already know the site plans to
+      // serve locale variants once that content ships.
+      languages: {
+        en: url,
+        'en-GB': url,
+        fr: url,
+        'x-default': url,
+      },
+    },
     openGraph: {
       title,
       description,
@@ -62,5 +73,37 @@ export function articleJsonLd(article: Article) {
       : undefined,
     datePublished: article.date,
     author: { '@type': 'Organization', name: siteConfig.name },
+  }
+}
+
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.url,
+    description: siteConfig.description,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteConfig.url}/articles?category={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  }
+}
+
+export function breadcrumbJsonLd(article: Article) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'All Reviews', item: `${siteConfig.url}/articles` },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: `${siteConfig.url}/articles/${article.slug}`,
+      },
+    ],
   }
 }
