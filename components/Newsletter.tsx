@@ -1,3 +1,5 @@
+import Script from 'next/script'
+
 export default function Newsletter() {
   return (
     <section id="newsletter" className="rounded-2xl bg-brand-900 px-6 py-10 text-center text-white">
@@ -6,14 +8,11 @@ export default function Newsletter() {
         One email a week. New reviews, deals, and workflows for solopreneurs.
       </p>
       <div className="mx-auto mt-6 max-w-sm">
-        <iframe
-          src="https://embeds.beehiiv.com/0a52eff4-5f0b-4695-9e98-32fbdfd87156"
-          width="100%"
-          height="100"
-          frameBorder="0"
-          scrolling="no"
-          style={{ margin: 0, backgroundColor: 'transparent' }}
-          title="Subscribe to AI Tools for Solopreneurs newsletter"
+        <Script
+          async
+          src="https://subscribe-forms.beehiiv.com/v3/loader.js"
+          data-beehiiv-form="0a52eff4-5f0b-4695-9e98-32fbdfd87156"
+          strategy="lazyOnload"
         />
       </div>
     </section>
